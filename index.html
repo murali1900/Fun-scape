@@ -70,6 +70,21 @@
   .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 700; font-size: 14px; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--yellow); }
 
+  .nav-cta {
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: transform 0.15s;
+  }
+  .nav-cta:hover { transform: translateY(-2px); }
+
   .hero { position: relative; min-height: 80vh; display: flex; align-items: center; padding: 120px 48px 80px; overflow: hidden; }
   .hero-content { position: relative; z-index: 1; max-width: 800px; }
   
@@ -81,7 +96,7 @@
   @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .ticker-item { font-family: 'Bangers', cursive; color: var(--dark); padding: 0 30px; font-size: 18px; }
 
-  section { padding: 60px 48px; position: relative; z-index: 1; }
+  section { padding: 80px 48px; position: relative; z-index: 1; }
   .section-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 10px; }
   .section-title { font-family: 'Bangers', cursive; font-size: clamp(36px, 5vw, 56px); margin-bottom: 40px; }
 
@@ -128,11 +143,71 @@
   .fade-up { opacity: 0; transform: translateY(30px); transition: 0.6s all ease; }
   .visible { opacity: 1 !important; transform: translateY(0) !important; }
 
-  footer { padding: 60px 48px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); }
+  /* ── FOOTER RESTORE ── */
+  footer {
+    padding: 80px 48px 40px;
+    border-top: 1px solid var(--border);
+    background: var(--dark2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 16px 0 24px;
+    max-width: 320px;
+  }
+
+  .social-links { display: flex; gap: 12px; }
+  .social-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; text-decoration: none; color: var(--text);
+    transition: 0.2s;
+  }
+  .social-btn:hover { border-color: var(--yellow); transform: translateY(-3px); }
+
+  .footer-col h4 {
+    font-weight: 900; font-size: 14px;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 20px; color: var(--text);
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 14px; font-weight: 600; transition: 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--yellow); }
+
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 32px; border-top: 1px solid var(--border);
+  }
+  .footer-bottom p { font-size: 13px; color: var(--text-muted); }
+  .footer-bottom span { color: var(--pink); }
+
+  @media (max-width: 1024px) {
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
 
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
     section { padding: 40px 20px; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   }
 </style>
 </head>
@@ -141,133 +216,20 @@
 <nav>
   <div class="nav-logo">Fun Scape International</div>
   <ul class="nav-links">
-    <li><a href="#machines">Machines</a></li>
-    <li><a href="#products">Collectibles</a></li>
-    <li><a href="https://wa.me/919000000000">Contact</a></li>
+    <li><a href="#machines">Vending Machines</a></li>
+    <li><a href="#products">Catalog</a></li>
+    <li><a href="https://wa.me/919000000000">Support</a></li>
   </ul>
+  <button class="nav-cta">B2B Inquiry</button>
 </nav>
 
 <section class="hero">
   <div class="hero-content">
-    <div class="section-label">B2B & Retail Collectibles</div>
-    <h1>COLLECT<br><span class="line2">THE EXTRAORDINARY</span></h1>
-    <p style="font-size: 18px; color: var(--text-muted); margin-bottom: 30px;">Premium Anime figures, portrait vending machines, and exclusive plushies sourced directly for the Indian market.</p>
-    <a href="#products" style="background: var(--yellow); color: var(--dark); padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 900; letter-spacing: 1px;">VIEW CATALOG</a>
+    <div class="section-label">Authentic Pop Culture Imports</div>
+    <h1>COLLECT THE<br><span class="line2"> EXTRAORDINARY</span></h1>
+    <p style="font-size: 18px; color: var(--text-muted); margin-bottom: 30px;">Importer of high-end Anime figures, Portrait Vending Kiosks, and Licensed plushies for the Indian market.</p>
+    <a href="#products" style="background: var(--yellow); color: var(--dark); padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 900; letter-spacing: 1px;">EXPLORE CATALOG</a>
   </div>
 </section>
 
 <div class="ticker">
-  <div class="ticker-inner">
-    <div class="ticker-item">NARUTO SHINOBI • CRAYON SHIN-CHAN • PIKACHU DESSERTS • STITCH CHEF • ARTIST BUNNY • VENDING KIOSKS •</div>
-    <div class="ticker-item">NARUTO SHINOBI • CRAYON SHIN-CHAN • PIKACHU DESSERTS • STITCH CHEF • ARTIST BUNNY • VENDING KIOSKS •</div>
-  </div>
-</div>
-
-<section id="machines">
-  <div class="section-label">Revenue Generating Units</div>
-  <h2 class="section-title">The Machine Experience</h2>
-  
-  <div class="machines-grid fade-up">
-    <div class="machine-card">
-      <div class="sp-embed-player" data-id="cOhrXBnt5tk" data-aspect-ratio="0.562353" data-padding-top="177.824268%" style="position:relative;width:100%;padding-top:177.824268%;height:0;"><script src="https://go.screenpal.com/consumption/player_appearance/cOhrXBnt5tk/0.562353"></script><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOhrXBnt5tk?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe></div>
-      <div class="machine-info"><div class="machine-name">Pro Spin V1</div><p class="machine-desc">Classic mechanical engagement for boutiques.</p></div>
-    </div>
-
-    <div class="machine-card">
-      <div class="sp-embed-player" data-id="cOhrInnt5pn" data-aspect-ratio="0.566038" data-padding-top="176.666667%" style="position:relative;width:100%;padding-top:176.666667%;height:0;"><script src="https://go.screenpal.com/consumption/player_appearance/cOhrInnt5pn/0.566038"></script><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOhrInnt5pn?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe></div>
-      <div class="machine-info"><div class="machine-name">Elite Portrait Dispenser</div><p class="machine-desc">Sleek floor-standing unit for high-traffic zones.</p></div>
-    </div>
-
-    <div class="machine-card">
-      <div class="sp-embed-player" data-id="cOhrInnt5p1" data-aspect-ratio="0.562500" data-padding-top="177.777778%" style="position:relative;width:100%;padding-top:177.777778%;height:0;"><script src="https://go.screenpal.com/consumption/player_appearance/cOhrInnt5p1/0.562500"></script><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOhrInnt5p1?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe></div>
-      <div class="machine-info"><div class="machine-name">Smart Kiosk Pro</div><p class="machine-desc">Touch-screen automated prize selection.</p></div>
-    </div>
-
-    <div class="machine-card">
-      <div class="sp-embed-player" data-id="cOhrInnt5pi" data-aspect-ratio="0.562061" data-padding-top="177.916667%" style="position:relative;width:100%;padding-top:177.916667%;height:0;"><script src="https://go.screenpal.com/consumption/player_appearance/cOhrInnt5pi/0.562061"></script><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOhrInnt5pi?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe></div>
-      <div class="machine-info"><div class="machine-name">Compact Vendo X</div><p class="machine-desc">Space-saving vertical tower for cafes.</p></div>
-    </div>
-
-    <div class="machine-card">
-      <div class="sp-embed-player" data-id="cOhrlPnt5gk" data-aspect-ratio="0.562353" data-padding-top="177.824268%" style="position:relative;width:100%;padding-top:177.824268%;height:0;"><script src="https://go.screenpal.com/consumption/player_appearance/cOhrlPnt5gk/0.562353"></script><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOhrlPnt5gk?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe></div>
-      <div class="machine-info"><div class="machine-name">Arcade Hub Unit</div><p class="machine-desc">Multi-series capacity with vibrant lighting.</p></div>
-    </div>
-
-    <div class="machine-card">
-        <div class="sp-embed-player" data-id="cOhrXBnt5tk" data-aspect-ratio="0.562353" data-padding-top="177.824268%" style="position:relative;width:100%;padding-top:177.824268%;height:0;"><script src="https://go.screenpal.com/consumption/player_appearance/cOhrXBnt5tk/0.562353"></script><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" scrolling="no" src="https://go.screenpal.com/player/cOhrXBnt5tk?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1" allowfullscreen="true"></iframe></div>
-        <div class="machine-info"><div class="machine-name">Manual Capsule V1</div><p class="machine-desc">The evergreen mechanical dispenser.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="products" style="background: var(--dark2);">
-  <div class="section-label">Authentic & Licensed</div>
-  <h2 class="section-title">Latest Arrivals</h2>
-  <div class="products-grid fade-up">
-    
-    <div class="product-card">
-      <img src="https://i.ibb.co/LhyM4pM/Shinchan-Set.jpg" class="product-img" alt="Crayon Shin-chan Set">
-      <div class="product-meta">
-        <div class="product-title">Shin-chan Cosplay Set (9 Pcs)</div>
-        <div class="product-price">₹1,449</div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://i.ibb.co/hL7gWfB/Pikachu-Food.jpg" class="product-img" alt="Pikachu Dessert">
-      <div class="product-meta">
-        <div class="product-title">Pikachu Food Series Set</div>
-        <div class="product-price">₹999</div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://i.ibb.co/vYV07L8/Stitch-Chef.jpg" class="product-img" alt="Stitch Chef Plush">
-      <div class="product-meta">
-        <div class="product-title">Stitch Chef Plush Keychain</div>
-        <div class="product-price">₹649</div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://i.ibb.co/YyYhQ3S/Artist-Bunny.jpg" class="product-img" alt="Artist Bunny Plush">
-      <div class="product-meta">
-        <div class="product-title">Artist Bunny Painter Plush</div>
-        <div class="product-price">₹799</div>
-      </div>
-    </div>
-
-    <div class="product-card">
-        <img src="https://i.ibb.co/7XW2m3W/Naruto-Set.jpg" class="product-img" alt="Naruto Shinobi Set">
-        <div class="product-meta">
-          <div class="product-title">Naruto Shinobi Chibi Collection</div>
-          <div class="product-price">₹1,199</div>
-        </div>
-      </div>
-
-    <div class="product-card">
-      <img src="https://i.ibb.co/mB8p8Pz/Little-Star-Wish.jpg" class="product-img" alt="Little Star Wish">
-      <div class="product-meta">
-        <div class="product-title">Little Star Wish Potatoes Set</div>
-        <div class="product-price">₹549</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <div class="nav-logo">Fun Scape International</div>
-  <p>Importer of Premium Pop Culture Collectibles & Vending Systems</p>
-  <p style="margin-top: 20px; font-size: 13px; opacity: 0.7;">© 2026 Fun Scape International. India Delivery.</p>
-</footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
